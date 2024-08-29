@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: "Merriweather";
+    font-style: normal;
+}
+
+.main {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 50px;
+    height: 670px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-image: url("images/space.jpg");
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+    height: 40px;
+    color: white;
+    background-color: black;
+}
+
+.title {
+    margin: 0;
+    font-size: 50px;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.tech-text {
+    border-bottom: 4px solid #00FFDD;
+    padding: 0px 5px 0px 5px;
+    transition-duration: 0.4s;
+    font-weight: 1000
+}
+
+.tech-text:hover {
+    background-color: #00FFDD;
+    color: #0E185F;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    margin: 150px 50px;
+    width: 500px;
+}
+
+.btn {
+    width: 140px;
+    border: #00FFDD solid 2px;
+    padding: 10px 25px 10px 25px;
+    background-color: #00FFDD;
+    color: #0E185F;
+    font-size: 17px;
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+    border-radius: 10px;
+    background-color: transparent;
+    color: #00FFDD;
+}
+
+.merriweather-bold {
+    font-family: "Merriweather", serif;
+    font-weight: 1000;
+    font-style: normal;
+}
+
+.merriweather-light {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#css-bt {
+    color: white;
+    background-color: black;
+    border-radius: 0px;
+}
+
+#css-bt:hover {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    border-width: 5px;
+    border: black solid 2px;
+}

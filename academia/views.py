@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from academia.models import Photos
 
 def index(request):
-    return render(request, 'academia/index.html')
 
-def contact(request):
-    return render(request, 'academia/contact.html')
+    photos = Photos.objects.all()
+    return render(request, 'academia/index.html', {"cards":photos})
+
+def contact(request, photo_id):
+    photo = get_object_or_404(Photos, pk=photo_id)
+    return render(request, 'academia/contact.html', {"photo": photo})
 
 # Create your views here.

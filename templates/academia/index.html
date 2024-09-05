@@ -9,10 +9,14 @@
         <div class="row">
           {% if cards %}
           {% for photo in cards %}
-          <div class="col-sm-4">
-            <div class="card" style="width:400px">
-              <img class="card-img-top" src="{% static '/assets/' %}{{ photo.photo }}" alt="Card image">
-              <div class="card-body">
+          <div class="col-lg-4">
+            <div class="card" style="width:300px">
+              {% if photo.photo == "" or photo.photo == null %}
+                <img class="card-img-top" src="{% static 'assets/not_found.jpg' %}" alt="Card image">
+              {% else %}
+                <img class="card-img-top" src="{{ photo.photo.url }}" alt="Card image">
+              {% endif %}
+                <div class="card-body">
                 <h4 class="card-title">{{ photo.name }}</h4>
                 <p class="card-text">{{ photo.legend }}</p>
                 <a href="{% url 'contact' photo.id %}" class="btn btn-primary">See Profile</a>

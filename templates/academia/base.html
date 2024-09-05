@@ -19,10 +19,22 @@
                 <a class="nav-link" href="{% url '' %}">Home</a>
               </li> 
             </ul>
-            <button id="css-bt" type="button" class="btn" onclick="contact">Contact Us</button>
+            <form class="d-flex" role="search" action="{% url '' %}">
+              <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a href="{% url 'login' %}" class="btn btn-outline-dark">Login</a>
         </div>
     </nav>
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show">
+        <p id="messages">{{ message }}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div class="container p-5">
     {% block content %}{% endblock %}
+    </div>
     {% include 'academia/partials/_footer.html' %}
 <body>
 </html>

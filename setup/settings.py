@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'academia.apps.AcademiaConfig',
+    'users.apps.UsersConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -115,17 +117,40 @@ USE_I18N = True
 
 USE_TZ = True
 
+# AWS CONFIG
+
+AWS_ACCESS_KEY_ID = str(os.getenv("AWS_ACCESS_KEY_ID"))
+AWS_SECRET_ACCESS_KEY = str(os.getenv("AWS_SECRET_ACCESS_KEY"))
+
+AWS_STORAGE_BUCKET_NAME = 'fotos-haurum-lab'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
+STORAGES = {
+    "default":{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage"
+    },
+    "staticfiles":{
+        "BACKEND":"storages.backends.s3boto3.S3StaticStorage"
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'setup/static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Media
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

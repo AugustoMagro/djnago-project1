@@ -56,7 +56,7 @@ body {
     width: 500px;
 }
 
-.btn {
+.btnLocal {
     width: 140px;
     border: #00FFDD solid 2px;
     padding: 10px 25px 10px 25px;
@@ -66,7 +66,7 @@ body {
     transition-duration: 0.4s;
 }
 
-.btn:hover {
+.btnLocal:hover {
     border-radius: 10px;
     background-color: transparent;
     color: #00FFDD;
@@ -96,8 +96,4 @@ body {
     border-radius: 5px;
     border-width: 5px;
     border: black solid 2px;
-}
-
-.footer{
-    background-color: #0E185F;
 }
